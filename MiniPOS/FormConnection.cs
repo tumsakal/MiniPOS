@@ -43,6 +43,7 @@ namespace MiniPOS
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder.DataSource = txtServerName.Text.Trim();
             builder.InitialCatalog = txtDatabaseNme.Text.Trim();
+            builder.MultipleActiveResultSets = true;
             if (comboBox1.Text.Trim().ToLower().StartsWith("w"))
                 builder.IntegratedSecurity = true;
             else if(comboBox1.Text.Trim().ToLower().StartsWith("s"))

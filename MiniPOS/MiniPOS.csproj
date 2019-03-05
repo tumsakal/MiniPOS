@@ -142,6 +142,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>POS_Sale.xsd</DependentUpon>
     </Compile>
+    <Compile Include="POS\UserControl_Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="POS\UserControl_Product.Designer.cs">
+      <DependentUpon>UserControl_Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CRM\FormCustomer.resx">
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="POS\FormSale.resx">
       <DependentUpon>FormSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="POS\UserControl_Product.resx">
+      <DependentUpon>UserControl_Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
