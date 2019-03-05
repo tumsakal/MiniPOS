@@ -24,7 +24,7 @@ namespace MiniPOS.POS
 
         private void FormSale_Load(object sender, EventArgs e)
         {
-            txtCashier.Text = $"{Program.KHName} : {Program.ENGName}";
+            txtCashier.Text = $"{Program.StaffID} : {Program.KHName} : {Program.ENGName}";
         }
     }
 }
