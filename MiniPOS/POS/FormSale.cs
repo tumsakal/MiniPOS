@@ -39,6 +39,7 @@ namespace MiniPOS.POS
             CategoryTableAdapter cate_adapter = new CategoryTableAdapter();
             cate_adapter.Connection = Program.Connection;
             cate_adapter.Fill(dataset.Category);
+
             foreach (var cate in dataset.Category)
             {
                 Button btnCategory = new Button();
@@ -49,6 +50,20 @@ namespace MiniPOS.POS
                 btnCategory.Click += BtnCategory_Click;
                 flowLayoutPanel_Category.Controls.Add(btnCategory);
             }
+            //
+            dataGridView_Purchasing_Items.DataSource = dataset.PurchasingItems;
+            dataGridView_Purchasing_Items.Columns[0].Visible = false;//ProductID
+            //add 
+            DataGridViewImageColumn plus = new DataGridViewImageColumn();
+            //plus.HeaderText = "";
+            plus.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            plus.Image = Properties.Resources.Plus_32px;
+            DataGridViewImageColumn delete = new DataGridViewImageColumn();
+            //delete.HeaderText = "";
+            delete.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            delete.Image = Properties.Resources.Cancel_16px1;
+            dataGridView_Purchasing_Items.Columns.Add(plus);
+            dataGridView_Purchasing_Items.Columns.Add(delete);
         }
 
         private void BtnCategory_Click(object sender, EventArgs e)
@@ -77,12 +92,56 @@ namespace MiniPOS.POS
         private void PictureBox_Product_Image_Click(object sender, EventArgs e)
         {
             PictureBox ptb = sender as PictureBox;
-            MessageBox.Show($"product id : {ptb.Tag}");
+            string pro_id = ptb.Tag.ToString();
+            POS_Sale.ProductRow pro = dataset.Product.FindByID(pro_id);
+            //
+            POS_Sale.PurchasingItemsRow purchase_item = dataset.PurchasingItems.FindByProductID(pro.ID);
+            if (purchase_item == null)
+            {
+                purchase_item = dataset.PurchasingItems.NewPurchasingItemsRow();
+                purchase_item.ProductID = pro.ID;
+                purchase_item.Name = pro.Name;
+                purchase_item.Qty = 1;
+                purchase_item.Price = pro.UnitPrice;
+                purchase_item.Disc = 0;
+                dataset.PurchasingItems.AddPurchasingItemsRow(purchase_item);
+                //ptb.Click -= PictureBox_Product_Image_Click;
+            }
+            else if(purchase_item != null)
+            {
+                purchase_item.Qty++;
+            }
         }
 
         private Image ConvertImageFromBytes(byte[] raw)
         {
             return Image.FromStream(new System.IO.MemoryStream(raw));
         }
+
+        private void dataGridView_Purchasing_Items_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0 && e.ColumnIndex >= 6)
+            {
+                string pro_id = dataGridView_Purchasing_Items[0, e.RowIndex].Value.ToString();
+                POS_Sale.PurchasingItemsRow purchase = dataset.PurchasingItems.FindByProductID(pro_id);
+                if(e.ColumnIndex == 6)//plus
+                {
+                    purchase.Qty++;
+                }
+                else if(e.ColumnIndex ==7)//delete
+                {
+                    purchase.Qty--;
+                    if (purchase.Qty == 0)
+                        purchase.Delete();
+                }
+            }
+            
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+        
     }
 }

@@ -30,24 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCashier = new System.Windows.Forms.TextBox();
-            this.cboCustomer = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDateTime = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView_Purchasing_Items = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtInvoiceID = new System.Windows.Forms.TextBox();
             this.txtGrandTotal = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtInvoiceID = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.txtDiscount = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView_Purchasing_Items = new System.Windows.Forms.DataGridView();
+            this.txtDateTime = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboCustomer = new System.Windows.Forms.ComboBox();
+            this.txtCashier = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel_Category = new System.Windows.Forms.FlowLayoutPanel();
@@ -85,105 +85,40 @@
             this.panel1.Size = new System.Drawing.Size(400, 624);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // btnSave
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cashier:";
+            this.btnSave.Location = new System.Drawing.Point(314, 556);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(74, 56);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtCashier
+            // btnPrint
             // 
-            this.txtCashier.Location = new System.Drawing.Point(170, 59);
-            this.txtCashier.Name = "txtCashier";
-            this.txtCashier.Size = new System.Drawing.Size(218, 29);
-            this.txtCashier.TabIndex = 1;
+            this.btnPrint.Location = new System.Drawing.Point(170, 556);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(74, 56);
+            this.btnPrint.TabIndex = 9;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
             // 
-            // cboCustomer
+            // label8
             // 
-            this.cboCustomer.FormattingEnabled = true;
-            this.cboCustomer.Location = new System.Drawing.Point(170, 94);
-            this.cboCustomer.Name = "cboCustomer";
-            this.cboCustomer.Size = new System.Drawing.Size(218, 29);
-            this.cboCustomer.TabIndex = 2;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 132);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 21);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Invoice ID:";
             // 
-            // label2
+            // txtInvoiceID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 21);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Customer:";
-            // 
-            // txtDateTime
-            // 
-            this.txtDateTime.Location = new System.Drawing.Point(170, 24);
-            this.txtDateTime.Name = "txtDateTime";
-            this.txtDateTime.Size = new System.Drawing.Size(218, 29);
-            this.txtDateTime.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 21);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Date/Time:";
-            // 
-            // dataGridView_Purchasing_Items
-            // 
-            this.dataGridView_Purchasing_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Purchasing_Items.Location = new System.Drawing.Point(3, 196);
-            this.dataGridView_Purchasing_Items.Name = "dataGridView_Purchasing_Items";
-            this.dataGridView_Purchasing_Items.Size = new System.Drawing.Size(394, 249);
-            this.dataGridView_Purchasing_Items.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 172);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(132, 21);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Purchasing Items:";
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(170, 451);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(218, 29);
-            this.txtTotal.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label5.Location = new System.Drawing.Point(14, 454);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 21);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Total:";
-            // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(170, 486);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Size = new System.Drawing.Size(218, 29);
-            this.txtDiscount.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label6.Location = new System.Drawing.Point(14, 489);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 21);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Discount:";
+            this.txtInvoiceID.Location = new System.Drawing.Point(170, 129);
+            this.txtInvoiceID.Name = "txtInvoiceID";
+            this.txtInvoiceID.Size = new System.Drawing.Size(218, 29);
+            this.txtInvoiceID.TabIndex = 3;
             // 
             // txtGrandTotal
             // 
@@ -202,39 +137,110 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Grand Total:";
             // 
-            // txtInvoiceID
+            // txtDiscount
             // 
-            this.txtInvoiceID.Location = new System.Drawing.Point(170, 129);
-            this.txtInvoiceID.Name = "txtInvoiceID";
-            this.txtInvoiceID.Size = new System.Drawing.Size(218, 29);
-            this.txtInvoiceID.TabIndex = 3;
+            this.txtDiscount.Location = new System.Drawing.Point(170, 486);
+            this.txtDiscount.Name = "txtDiscount";
+            this.txtDiscount.Size = new System.Drawing.Size(218, 29);
+            this.txtDiscount.TabIndex = 6;
             // 
-            // label8
+            // label6
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 132);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 21);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Invoice ID:";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label6.Location = new System.Drawing.Point(14, 489);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(82, 21);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Discount:";
             // 
-            // btnPrint
+            // txtTotal
             // 
-            this.btnPrint.Location = new System.Drawing.Point(170, 556);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(74, 56);
-            this.btnPrint.TabIndex = 9;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.txtTotal.Location = new System.Drawing.Point(170, 451);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(218, 29);
+            this.txtTotal.TabIndex = 5;
             // 
-            // btnSave
+            // label5
             // 
-            this.btnSave.Location = new System.Drawing.Point(314, 556);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(74, 56);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.label5.Location = new System.Drawing.Point(14, 454);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 21);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Total:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 172);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 21);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Purchasing Items:";
+            // 
+            // dataGridView_Purchasing_Items
+            // 
+            this.dataGridView_Purchasing_Items.AllowUserToAddRows = false;
+            this.dataGridView_Purchasing_Items.AllowUserToDeleteRows = false;
+            this.dataGridView_Purchasing_Items.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Purchasing_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Purchasing_Items.Location = new System.Drawing.Point(3, 196);
+            this.dataGridView_Purchasing_Items.Name = "dataGridView_Purchasing_Items";
+            this.dataGridView_Purchasing_Items.RowHeadersVisible = false;
+            this.dataGridView_Purchasing_Items.Size = new System.Drawing.Size(394, 249);
+            this.dataGridView_Purchasing_Items.TabIndex = 4;
+            this.dataGridView_Purchasing_Items.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Purchasing_Items_CellClick);
+            // 
+            // txtDateTime
+            // 
+            this.txtDateTime.Location = new System.Drawing.Point(170, 24);
+            this.txtDateTime.Name = "txtDateTime";
+            this.txtDateTime.Size = new System.Drawing.Size(218, 29);
+            this.txtDateTime.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 21);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Date/Time:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 21);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Customer:";
+            // 
+            // cboCustomer
+            // 
+            this.cboCustomer.FormattingEnabled = true;
+            this.cboCustomer.Location = new System.Drawing.Point(170, 94);
+            this.cboCustomer.Name = "cboCustomer";
+            this.cboCustomer.Size = new System.Drawing.Size(218, 29);
+            this.cboCustomer.TabIndex = 2;
+            // 
+            // txtCashier
+            // 
+            this.txtCashier.Location = new System.Drawing.Point(170, 59);
+            this.txtCashier.Name = "txtCashier";
+            this.txtCashier.Size = new System.Drawing.Size(218, 29);
+            this.txtCashier.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cashier:";
             // 
             // panel2
             // 
@@ -286,7 +292,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = global::MiniPOS.Properties.Settings.Default.AppFont;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormSale";
             this.Text = "FormSale";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
