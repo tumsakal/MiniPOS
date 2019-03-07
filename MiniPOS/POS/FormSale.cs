@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MiniPOS.POS.POS_SaleTableAdapters;
+using System.Data.SqlClient;
 namespace MiniPOS.POS
 {
     public partial class FormSale : Form
@@ -111,6 +112,7 @@ namespace MiniPOS.POS
             {
                 purchase_item.Qty++;
             }
+            CalculateTotal();
         }
 
         private Image ConvertImageFromBytes(byte[] raw)
@@ -134,13 +136,67 @@ namespace MiniPOS.POS
                     if (purchase.Qty == 0)
                         purchase.Delete();
                 }
-            }
-            
+                CalculateTotal();
+            }            
         }
-
-        private void btnSave_Click(object sender, EventArgs e)
+        void CalculateTotal()
         {
-
+            //column 'Total' is decimal
+            object result = dataset.PurchasingItems.Compute(expression: "SUM(Total)", filter: "");
+            //result is an object of decimal
+            if (result != DBNull.Value)
+            {
+                decimal total = Convert.ToDecimal(result);
+                decimal discount = Convert.ToDecimal(txtDiscount.Text.Trim());
+                decimal grand_total = total - discount;
+                txtTotal.Text = total.ToString();
+                txtGrandTotal.Text = grand_total.ToString();
+            }
+            else
+            {
+                txtTotal.Text = "0";
+                txtDiscount.Text = "0";
+                txtGrandTotal.Text = "0";
+            }
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {//using using System.Data.SqlClient;
+            if (dataset.PurchasingItems.Rows.Count > 0)
+            {
+                Program.Connection.Close();
+                Program.Connection.Open();
+                SqlTransaction sale_transaction = Program.Connection.BeginTransaction();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = Program.Connection;
+                cmd.Transaction = sale_transaction;
+                try
+                {
+                    //Invoice
+                    cmd.CommandText = $@"INSERT INTO Invoice(ID, StaffID, CustomerID, [Date], Discount)
+                                    VALUES(@invoiceID,'{Program.StaffID}','{cboCustomer.SelectedValue}',
+                                    @date,{Convert.ToDecimal(txtDiscount.Text.Trim())})";
+                    cmd.Parameters.AddWithValue("@invoiceID", txtInvoiceID.Text.Trim());
+                    cmd.Parameters.AddWithValue("date", DateTime.Now);
+                    cmd.ExecuteNonQuery();//insert to invoice
+                    //throw new Exception("any error");
+                    //Invoice Items
+                    foreach (var purchase in dataset.PurchasingItems)
+                    {
+                        cmd.CommandText = $@"INSERT INTO InvoiceItems(InvoiceID, ProductID, Qty, UnitPrice, Discount)
+                                            VALUES(@invoiceID, '{purchase.ProductID}', {purchase.Qty}, {purchase.Price}, {purchase.Disc})";
+                        cmd.ExecuteNonQuery();
+                    }
+                    sale_transaction.Commit();
+                    //clear
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    sale_transaction.Rollback();
+                }
+                Program.Connection.Close();
+                Program.Connection.Open();
+            }
         }
         
     }

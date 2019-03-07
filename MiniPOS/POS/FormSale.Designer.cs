@@ -126,6 +126,7 @@
             this.txtGrandTotal.Name = "txtGrandTotal";
             this.txtGrandTotal.Size = new System.Drawing.Size(218, 29);
             this.txtGrandTotal.TabIndex = 7;
+            this.txtGrandTotal.Text = "0";
             // 
             // label7
             // 
@@ -143,6 +144,7 @@
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(218, 29);
             this.txtDiscount.TabIndex = 6;
+            this.txtDiscount.Text = "0";
             // 
             // label6
             // 
@@ -160,6 +162,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(218, 29);
             this.txtTotal.TabIndex = 5;
+            this.txtTotal.Text = "0";
             // 
             // label5
             // 
