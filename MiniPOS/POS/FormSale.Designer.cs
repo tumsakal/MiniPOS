@@ -263,6 +263,8 @@
             // 
             // flowLayoutPanel_Category
             // 
+            this.flowLayoutPanel_Category.AutoScroll = true;
+            this.flowLayoutPanel_Category.AutoScrollMargin = new System.Drawing.Size(0, 30);
             this.flowLayoutPanel_Category.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel_Category.Location = new System.Drawing.Point(0, 100);
             this.flowLayoutPanel_Category.Name = "flowLayoutPanel_Category";
