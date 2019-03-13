@@ -198,6 +198,26 @@ namespace MiniPOS.POS
                 Program.Connection.Open();
             }
         }
-        
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            CR_Invoice invoice = new CR_Invoice();
+            //set data source
+            invoice.SetDataSource((DataTable)dataset.PurchasingItems);
+            //set parameter's value
+            invoice.SetParameterValue("cashier", txtCashier.Text.Trim());
+            invoice.SetParameterValue("customer", cboCustomer.Text);
+            invoice.SetParameterValue("invoiceid", txtInvoiceID.Text.Trim());
+            invoice.SetParameterValue("invoicedate", DateTime.Now.ToString());
+            invoice.SetParameterValue("discount", txtDiscount.Text.Trim());
+            invoice.SetParameterValue("pay", txtGrandTotal.Text.Trim());
+            invoice.SetParameterValue("total", txtTotal.Text.Trim());
+            //
+            //invoice.PrintOptions.PrinterName = "POS-80C";//"Microsoft Print to PDF";//"POS-80C";
+            //invoice.PrintToPrinter(nCopies: 1, collated:true, startPageN: 1, endPageN: 1);
+            FormInvoiceViewer fm = new FormInvoiceViewer();
+            fm.crystalReportViewer1.ReportSource = invoice;
+            fm.ShowDialog();
+        }
     }
 }
